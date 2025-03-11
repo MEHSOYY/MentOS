@@ -6,7 +6,6 @@ set(PROGRAM_LIST
     clear.c
     cp.c
     cpu_bound.c # Assignment 5
-    could.c
     date.c
     echo.c
     edit.c
