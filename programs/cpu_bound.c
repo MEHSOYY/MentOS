@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <time.h>
+#include <time.h>  
 
 int main() {
     clock_t start = clock();
