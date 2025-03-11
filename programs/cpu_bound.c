@@ -1,11 +1,14 @@
 #include <stdio.h>
-#include <time.h>  
+#include "syscall.h" 
 
 int main() {
-    clock_t start = clock();
-    while ((clock() - start) / CLOCKS_PER_SEC < 5) {
-        // Busy wait
-    }
+    unsigned long start = get_ticks();  // Custom system call for time in ticks
+    unsigned long now;
+
+    do {
+        now = get_ticks();
+    } while ((now - start) < 5000);  // Assuming 1 tick = 1 millisecond
+
     printf("CPU-bound task completed\n");
     return 0;
 }
