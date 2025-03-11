@@ -1,23 +1,32 @@
 #include <stdio.h>
-#include "syscall.h" 
+#include <unistd.h>
+#include <sys/wait.h>
 
-void print_message(void* ptr) {
-    char* message = (char*) ptr;
+void print_message(const char* message) {
     printf("%s\n", message);
 }
 
 int main() {
-    int thread1, thread2;
-    char *message1 = "Thread 1";
-    char *message2 = "Thread 2";
+    pid_t pid1, pid2;
 
-    // USES MentOS's built-in thread creation syscall
-    thread1 = create_thread(print_message, (void*)message1);
-    thread2 = create_thread(print_message, (void*)message2);
+    pid1 = fork();
+    if (pid1 == 0) {
+        // First "thread"
+        print_message("Thread 1");
+        return 0;
+    }
 
-    // Waiting for the threads to finish 
-    wait_thread(thread1);
-    wait_thread(thread2);
+    pid2 = fork();
+    if (pid2 == 0) {
+        // Second "thread"
+        print_message("Thread 2");
+        return 0;
+    }
 
+    // Parent waits for both child processes to finish
+    wait(NULL);
+    wait(NULL);
+
+    printf("Both threads have finished.\n");
     return 0;
 }
