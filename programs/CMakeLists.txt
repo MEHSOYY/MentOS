@@ -5,6 +5,7 @@ set(PROGRAM_LIST
     chown.c
     clear.c
     cp.c
+    cpu_bound.c # Assignment 5
     could.c
     date.c
     echo.c
@@ -21,8 +22,10 @@ set(PROGRAM_LIST
     logo.c
     ls.c
     man.c
+    memory_allocation.c #ASSIGNMENT 3
     mkdir.c
     more.c
+    multithread.c #assignment 4
     nice.c
     poweroff.c
     ps.c
@@ -32,6 +35,7 @@ set(PROGRAM_LIST
     runtests.c
     shell.c
     showpid.c
+    shared_memory.c   # ASSIGNMENT 2
     simple_process.c  # ASSIGNMENT 1
     sleep.c
     stat.c
