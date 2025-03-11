@@ -11,7 +11,9 @@ int main() {
         sprintf(shm, "Hello from child process!");
         shmdt(shm);
     } else {
-        wait(NULL);
+        // Block for a short period to allow the child to finish writing
+        sleep(1);
+
         printf("Parent process reads: %s\n", shm);
         shmdt(shm);
         shmctl(shmid, IPC_RMID, NULL);
