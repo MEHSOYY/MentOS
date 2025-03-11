@@ -5,7 +5,7 @@ set(PROGRAM_LIST
     chown.c
     clear.c
     cp.c
-    cpuid.c
+    could.c
     date.c
     echo.c
     edit.c
@@ -32,13 +32,13 @@ set(PROGRAM_LIST
     runtests.c
     shell.c
     showpid.c
+    simple_process.c  # ASSIGNMENT 1
     sleep.c
     stat.c
     touch.c
     uname.c
     uptime.c
 )
-
 # Set the directory where the compiled binaries will be placed.
 set(MENTOS_BIN_DIR ${CMAKE_SOURCE_DIR}/files/bin)
 
